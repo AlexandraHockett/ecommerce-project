@@ -47,6 +47,7 @@ export interface Page {
         };
         url: string;
         label: string;
+        icon?: string | Media;
         appearance?: 'default' | 'primary' | 'secondary';
       };
       id?: string;
@@ -69,6 +70,7 @@ export interface Page {
             };
             url: string;
             label: string;
+            icon?: string | Media;
             appearance?: 'primary' | 'secondary';
           };
           id?: string;
@@ -94,6 +96,7 @@ export interface Page {
             };
             url: string;
             label: string;
+            icon?: string | Media;
             appearance?: 'default' | 'primary' | 'secondary';
           };
           id?: string;
@@ -200,6 +203,7 @@ export interface Product {
             };
             url: string;
             label: string;
+            icon?: string | Media;
             appearance?: 'primary' | 'secondary';
           };
           id?: string;
@@ -225,6 +229,7 @@ export interface Product {
             };
             url: string;
             label: string;
+            icon?: string | Media;
             appearance?: 'default' | 'primary' | 'secondary';
           };
           id?: string;
@@ -292,6 +297,7 @@ export interface Product {
             };
             url: string;
             label: string;
+            icon?: string | Media;
             appearance?: 'primary' | 'secondary';
           };
           id?: string;
@@ -317,6 +323,7 @@ export interface Product {
             };
             url: string;
             label: string;
+            icon?: string | Media;
             appearance?: 'default' | 'primary' | 'secondary';
           };
           id?: string;
@@ -450,6 +457,7 @@ export interface Header {
       };
       url: string;
       label: string;
+      icon?: string | Media;
     };
     id?: string;
   }[];
@@ -458,6 +466,7 @@ export interface Header {
 }
 export interface Footer {
   id: string;
+  copyright: string;
   navItems?: {
     link: {
       type?: 'reference' | 'custom';
@@ -468,6 +477,7 @@ export interface Footer {
       };
       url: string;
       label: string;
+      icon?: string | Media;
     };
     id?: string;
   }[];
