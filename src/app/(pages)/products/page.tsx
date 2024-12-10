@@ -24,7 +24,6 @@ const Products = async () => {
       draft: isDraftMode,
     })
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     categories = await fetchDocs<Category>('categories')
   } catch (error) {
     console.log(error)
@@ -33,7 +32,7 @@ const Products = async () => {
   return (
     <div className={classes.container}>
       <Gutter className={classes.products}>
-        <Filters />
+        <Filters categories={categories} />
         <Blocks blocks={page?.layout} disableTopPadding={true} />
       </Gutter>
       <HR />
