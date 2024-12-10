@@ -20,6 +20,8 @@ import { generateMeta } from '../../_utilities/generateMeta'
 // If you are not using Payload Cloud then this line can be removed, see `../../../README.md#cache`
 export const dynamic = 'force-dynamic'
 
+import Categories from '../../_components/Categories'
+
 import classes from './index.module.scss'
 
 export default async function Page({ params: { slug = 'home' } }) {
@@ -35,7 +37,6 @@ export default async function Page({ params: { slug = 'home' } }) {
       draft: isDraftMode,
     })
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     categories = await fetchDocs<Category>('categories')
   } catch (error) {
     // when deploying this template on Payload Cloud, this page needs to build before the APIs are live
@@ -62,7 +63,10 @@ export default async function Page({ params: { slug = 'home' } }) {
       {slug === 'home' ? (
         <section>
           <Hero {...hero} />
-          <Gutter className={classes.home} children={''}></Gutter>
+
+          <Gutter className={classes.home}>
+            <Categories categories={categories} />
+          </Gutter>
         </section>
       ) : (
         <>
