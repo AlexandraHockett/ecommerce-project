@@ -9,7 +9,7 @@ import { useCart } from '../../../_providers/Cart'
 
 import classes from './index.module.scss'
 
-export const OrderConfirmationPage: React.FC<{}> = () => {
+export const OrderConfirmationPage: React.FC<Record<string, never>> = () => {
   const searchParams = useSearchParams()
   const orderID = searchParams.get('order_id')
   const error = searchParams.get('error')
@@ -29,9 +29,9 @@ export const OrderConfirmationPage: React.FC<{}> = () => {
             {`Your payment was successful but there was an error processing your order. Please contact us to resolve this issue.`}
           </p>
           <div className={classes.actions}>
-            <Button href="/account" label="View account" appearance="primary" />
+            <Button href={`/account/orders/${orderID}`} label="View account" appearance="primary" />
             <Button
-              href={`${process.env.NEXT_PUBLIC_SERVER_URL}/orders`}
+              href={`${process.env.NEXT_PUBLIC_SERVER_URL}/account/orders`}
               label="View all orders"
               appearance="secondary"
             />
