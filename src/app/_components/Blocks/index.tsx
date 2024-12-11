@@ -21,6 +21,7 @@ const blockComponents = {
 export const Blocks: React.FC<{
   blocks: (Page['layout'][0] | RelatedProductsProps)[]
   disableTopPadding?: boolean
+  disableBottomPadding?: boolean
 }> = props => {
   const { disableTopPadding, blocks } = props
 
@@ -52,7 +53,9 @@ export const Blocks: React.FC<{
               paddingTop = 'none'
             }
 
-            if (index === blocks.length - 1) {
+            if (index === blocks.length - 1 && props.disableBottomPadding) {
+              paddingBottom = 'none'
+            } else if (index === blocks.length - 1) {
               paddingBottom = 'large'
             }
 
@@ -65,6 +68,7 @@ export const Blocks: React.FC<{
                 <BackgroundColor key={index} invert={blockIsInverted}>
                   <VerticalPadding top={paddingTop} bottom={paddingBottom}>
                     <Block
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                       // @ts-expect-error
                       id={toKebabCase(blockName)}
                       {...block}

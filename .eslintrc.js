@@ -14,5 +14,6 @@ module.exports = {
     'no-console': 'off', // Allow console logs
     'simple-import-sort/imports': 'error', // Enforce sorted imports
     'simple-import-sort/exports': 'error', // Enforce sorted exports
+    '@typescript-eslint/no-unused-vars': 'off',
   },
 }
